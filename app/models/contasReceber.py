@@ -1,6 +1,10 @@
 from . import Classificacao, formaPagamento
 from django.db import models
 
+class contasReceberManager(models.Manager):
+    def get_contasReceber(self):
+        return self.all()
+
 class contasReceber(models.Model):
     dataExpectativa = models.DateField(null=False)
     dataRecebimento = models.DateField(null=True)
@@ -9,3 +13,4 @@ class contasReceber(models.Model):
     classificacao = models.ForeignKey(Classificacao, on_delete=models.SET_NULL, null=True)
     formaPagamento = models.ForeignKey(formaPagamento, on_delete=models.SET_NULL, null=True)
     situacao = models.BooleanField(default=0)
+    objects = contasReceberManager()
