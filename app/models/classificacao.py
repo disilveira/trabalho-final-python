@@ -7,3 +7,6 @@ class ClassificacaoManager(models.Manager):
 class Classificacao(models.Model):
     nomeClassificacao = models.CharField(max_length=100)
     objects = ClassificacaoManager()
+
+    def __str__(self):
+        return f"{self.nomeClassificacao}"

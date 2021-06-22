@@ -7,3 +7,6 @@ class formaPagamentoManager(models.Manager):
 class formaPagamento(models.Model):
     nomeformaPagamento = models.CharField(max_length=100)
     objects = formaPagamentoManager()
+
+    def __str__(self):
+        return f"{self.nomeformaPagamento}"
