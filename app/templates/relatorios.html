@@ -12,19 +12,54 @@
 
             <div class="row">
                 <div class="col-2 table_head">Data vencimento</div>
-                <div class="col-4 table_head">Descrição</div>
+                <div class="col-2 table_head">Descrição</div>
                 <div class="col-2 table_head">Valor</div>
                 <div class="col-2 table_head">Pagamento</div>
                 <div class="col-2 table_head">Classificação</div>
+                <div class="col-2 table_head">Situação</div>
             </div>
 
             {% for conta in listaContasPagar %}
             <div class="row contas">
                 <div class="col-2 table_data">{{conta.dataVencimento}}</div>
-                <div class="col-4 table_data">{{conta.descricao}}</div>
+                <div class="col-2 table_data">{{conta.descricao}}</div>
                 <div class="col-2 table_data">{{conta.valor}}</div>
                 <div class="col-2 table_data">{{conta.formaPagamento}}</div>
                 <div class="col-2 table_data">{{conta.classificacao}}</div>
+                {% if conta.situacao %}
+                <div class="col-2 table_data">PAGO</div>
+                {% else %}
+                <div class="col-2 table_data">A PAGAR</div>
+                {% endif %}
+            </div>
+            {% endfor %}
+            
+        </div>
+
+        <div class="relatorio">
+            <h1>Contas a Receber</h1>
+
+            <div class="row">
+                <div class="col-2 table_head">Data expectativa</div>
+                <div class="col-2 table_head">Descrição</div>
+                <div class="col-2 table_head">Valor</div>
+                <div class="col-2 table_head">Pagamento</div>
+                <div class="col-2 table_head">Classificação</div>
+                <div class="col-2 table_head">Situação</div>
+            </div>
+
+            {% for conta in listaContasReceber %}
+            <div class="row contas">
+                <div class="col-2 table_data">{{conta.dataExpectativa}}</div>
+                <div class="col-2 table_data">{{conta.descricao}}</div>
+                <div class="col-2 table_data">{{conta.valor}}</div>
+                <div class="col-2 table_data">{{conta.formaPagamento}}</div>
+                <div class="col-2 table_data">{{conta.classificacao}}</div>
+                {% if conta.situacao %}
+                <div class="col-2 table_data">RECEBIDO</div>
+                {% else %}
+                <div class="col-2 table_data">A RECEBER</div>
+                {% endif %}
             </div>
             {% endfor %}
             

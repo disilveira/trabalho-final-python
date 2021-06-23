@@ -25,5 +25,6 @@ class contasReceberViewSet(viewsets.ModelViewSet):
 def exibir_relatorios(request):
 
     listaContasPagar = contasPagar.objects.gerar_relatorio()
+    listaContasReceber = contasReceber.objects.gerar_relatorio()
 
-    return render(request, 'relatorios.html', {'listaContasPagar' : listaContasPagar})
+    return render(request, 'relatorios.html', {'listaContasPagar' : listaContasPagar, 'listaContasReceber' : listaContasReceber})

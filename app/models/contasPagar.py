@@ -6,7 +6,7 @@ class contasPagarManager(models.Manager):
         return self.all()
 
     def gerar_relatorio(self):
-        return contasPagar.objects.filter(situacao=True).order_by('dataVencimento')
+        return contasPagar.objects.order_by('dataVencimento')
 
 
 class contasPagar(models.Model):

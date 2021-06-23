@@ -5,6 +5,9 @@ class contasReceberManager(models.Manager):
     def get_contasReceber(self):
         return self.all()
 
+    def gerar_relatorio(self):
+        return contasReceber.objects.order_by('dataExpectativa')
+
 class contasReceber(models.Model):
     dataExpectativa = models.DateField(null=False)
     dataRecebimento = models.DateField(null=True)
