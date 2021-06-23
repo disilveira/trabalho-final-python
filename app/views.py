@@ -1,6 +1,9 @@
 from rest_framework import viewsets
 from .serializers import classificacaoSerializer, contasPagarSerializer, contasReceberSerializer, formaPagamentoSerializer
 from .models import Classificacao, formaPagamento, contasPagar, contasReceber
+from django.shortcuts import render
+from django.views.decorators.http import require_http_methods
+from django.views.decorators.csrf import csrf_exempt
 
 class classificacaoViewSet(viewsets.ModelViewSet):
     queryset = Classificacao.objects.all()
@@ -17,3 +20,9 @@ class contasPagarViewSet(viewsets.ModelViewSet):
 class contasReceberViewSet(viewsets.ModelViewSet):
     queryset = contasReceber.objects.all()
     serializer_class = contasReceberSerializer
+
+@require_http_methods(['GET'])
+def exibir_relatorios(request):
+
+
+	return render(request, 'relatorios.html')
