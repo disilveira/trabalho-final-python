@@ -28,3 +28,9 @@ def exibir_relatorios(request):
     listaContasReceber = contasReceber.objects.gerar_relatorio()
 
     return render(request, 'relatorios.html', {'listaContasPagar' : listaContasPagar, 'listaContasReceber' : listaContasReceber})
+
+@require_http_methods(['GET'])
+def exibir_fluxo(request):
+
+
+    return render(request, 'fluxo.html')

@@ -12,5 +12,6 @@ router.register(r'contasPagar', views.contasPagarViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-	path('exibir_relatorios', views.exibir_relatorios, name='exibir_relatorios')
+	path('exibir_relatorios', views.exibir_relatorios, name='exibir_relatorios'),
+    path('exibir_fluxo', views.exibir_fluxo, name='exibir_fluxo')
 ]
