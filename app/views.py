@@ -24,5 +24,6 @@ class contasReceberViewSet(viewsets.ModelViewSet):
 @require_http_methods(['GET'])
 def exibir_relatorios(request):
 
+    listaContasPagar = contasPagar.objects.gerar_relatorio()
 
-	return render(request, 'relatorios.html')
+    return render(request, 'relatorios.html', {'listaContasPagar' : listaContasPagar})

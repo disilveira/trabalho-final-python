@@ -5,6 +5,10 @@ class contasPagarManager(models.Manager):
     def get_contasPagar(self):
         return self.all()
 
+    def gerar_relatorio(self):
+        return contasPagar.objects.filter(situacao=True).order_by('dataVencimento')
+
+
 class contasPagar(models.Model):
     dataVencimento = models.DateField(null=False)
     dataPagamento = models.DateField(null=True)

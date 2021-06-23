@@ -1,18 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<title>Relatórios</title>
 </head>
 <body>
 
     <div class="container">
-        <div class="row">
-            <h1>Relatório</h1>
+        <div class="relatorio">
+            <h1>Contas a Pagar</h1>
+
+            <div class="row">
+                <div class="col-2 table_head">Data vencimento</div>
+                <div class="col-4 table_head">Descrição</div>
+                <div class="col-2 table_head">Valor</div>
+                <div class="col-2 table_head">Pagamento</div>
+                <div class="col-2 table_head">Classificação</div>
+            </div>
+
+            {% for conta in listaContasPagar %}
+            <div class="row contas">
+                <div class="col-2 table_data">{{conta.dataVencimento}}</div>
+                <div class="col-4 table_data">{{conta.descricao}}</div>
+                <div class="col-2 table_data">{{conta.valor}}</div>
+                <div class="col-2 table_data">{{conta.formaPagamento}}</div>
+                <div class="col-2 table_data">{{conta.classificacao}}</div>
+            </div>
+            {% endfor %}
+            
         </div>
     </div>
 
 	<style>
 
+        .relatorio {
+            margin-bottom: 100px;
+        }
+
+        h1 {
+            margin-top: 40px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .table_head {
+            font-weight: 700;
+            padding-bottom: 20px;
+            border-bottom: 2px solid black;
+        }
+
+        .table_data {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .contas {
+            border-bottom: 1px solid black;
+        }
 
 	</style>
 
