@@ -35,8 +35,16 @@ def exibir_fluxo(request):
     meses = []
 
     for i in range(1, 6):
+
+        saldo_inicial = 10000 if i == 1 else mes['saldo_final']       
+
+        saldo_final = round(saldo_inicial - contasPagar.objects.obter_soma_mes(i) + contasReceber.objects.obter_soma_mes(i), 2)
+
+        lucro = round(saldo_final - saldo_inicial, 2)
+
         mes = {
             "data" : datetime.date(1900, i, 1).strftime('%B'),
+            "saldo_inicial" : saldo_inicial,
             "pagar" : {
                 "somaPrevisto": contasPagar.objects.obter_somaPrevisto_mes(i),
                 "somaRealizado": contasPagar.objects.obter_somaRealizado_mes(i),
@@ -49,6 +57,8 @@ def exibir_fluxo(request):
                 "somaMensal": contasReceber.objects.obter_soma_mes(i),
                 "ganhosClassificacao": contasReceber.objects.obter_ganhos_classificacao(i),
             },
+            "saldo_final" : saldo_final,
+            "lucro": lucro
         } 
         meses.append(mes)
 
