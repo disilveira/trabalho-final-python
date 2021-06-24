@@ -1,5 +1,6 @@
 from . import Classificacao, formaPagamento
 from django.db import models
+from django.db.models import Sum
 
 class contasReceberManager(models.Manager):
     def get_contasReceber(self):
@@ -7,6 +8,18 @@ class contasReceberManager(models.Manager):
 
     def gerar_relatorio(self):
         return contasReceber.objects.order_by('dataExpectativa')
+
+    def obter_somaPrevisto_mes(self, i):
+        soma = float(contasReceber.objects.filter(dataExpectativa__month=i, situacao=False).aggregate(Sum('valor'))['valor__sum'] or 0)
+        return soma
+
+    def obter_somaRealizado_mes(self, i):
+        soma = float(contasReceber.objects.filter(dataExpectativa__month=i, situacao=True).aggregate(Sum('valor'))['valor__sum'] or 0)
+        return soma
+
+    def obter_soma_mes(self, i):
+        soma = float(contasReceber.objects.filter(dataExpectativa__month=i).aggregate(Sum('valor'))['valor__sum'] or 0)
+        return soma
 
 class contasReceber(models.Model):
     dataExpectativa = models.DateField(null=False)

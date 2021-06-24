@@ -41,7 +41,12 @@ def exibir_fluxo(request):
                 "somaPrevisto": contasPagar.objects.obter_somaPrevisto_mes(i),
                 "somaRealizado": contasPagar.objects.obter_somaRealizado_mes(i),
                 "somaMensal": contasPagar.objects.obter_soma_mes(i),
-            }
+            },
+            "receber" : {
+                "somaPrevisto": contasReceber.objects.obter_somaPrevisto_mes(i),
+                "somaRecebido": contasReceber.objects.obter_somaRealizado_mes(i),
+                "somaMensal": contasReceber.objects.obter_soma_mes(i),
+            },
         } 
         meses.append(mes)
 

@@ -14,7 +14,7 @@
 
                 <div class="row">
                     <div class="col-6">
-                        <p>Pagamentos previstos</p>
+                        <p>Despesas previstas</p>
                     </div>
                     <div class="col-6">
                         <p>{{mes.pagar.somaPrevisto}}</p>
@@ -23,7 +23,7 @@
 
                 <div class="row">
                     <div class="col-6">
-                        <p>Pagamentos realizados</p>
+                        <p>Despesas pagas</p>
                     </div>
                     <div class="col-6">
                         <p>{{mes.pagar.somaRealizado}}</p>
@@ -32,12 +32,40 @@
 
                 <div class="row">
                     <div class="col-6">
-                        <p>Total pagamentos</p>
+                        <p>Total despesas</p>
                     </div>
                     <div class="col-6">
                         <p>{{mes.pagar.somaMensal}}</p>
                     </div>
                 </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <p>Receitas previstas</p>
+                    </div>
+                    <div class="col-6">
+                        <p>{{mes.receber.somaPrevisto}}</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <p>Receitas recebidas</p>
+                    </div>
+                    <div class="col-6">
+                        <p>{{mes.receber.somaRecebido}}</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <p>Total receitas</p>
+                    </div>
+                    <div class="col-6">
+                        <p>{{mes.receber.somaMensal}}</p>
+                    </div>
+                </div>
+
             {% endfor %}
         </div>
 
