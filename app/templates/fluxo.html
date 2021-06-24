@@ -30,6 +30,17 @@
                     </div>
                 </div>
 
+                {% for gasto in mes.pagar.gastosClassificacao %}
+                <div class="row">
+                    <div class="col-6">
+                        <p>Despesa: {{gasto.classificacao}}</p>
+                    </div>
+                    <div class="col-6">
+                        <p>{{gasto.soma}}</p>
+                    </div>
+                </div>
+                {% endfor %}
+
                 <div class="row">
                     <div class="col-6">
                         <p>Total despesas</p>
@@ -38,6 +49,8 @@
                         <p>{{mes.pagar.somaMensal}}</p>
                     </div>
                 </div>
+
+                <br><br><br><br>
 
                 <div class="row">
                     <div class="col-6">

@@ -22,6 +22,22 @@ class contasPagarManager(models.Manager):
         soma = float(contasPagar.objects.filter(dataVencimento__month=i).aggregate(Sum('valor'))['valor__sum'] or 0)
         return soma
 
+    def obter_gastos_classificacao(self, i):
+
+        gastos = []
+
+        for x in range (1,19):
+            soma = float(contasPagar.objects.filter(dataVencimento__month=i, classificacao=x).aggregate(Sum('valor'))['valor__sum'] or 0)
+            gasto = {
+            'classificacao' : Classificacao.objects.obter_classificacao_id(x),
+            'soma' : soma
+            }
+            if soma > 0:
+                gastos.append(gasto)
+  
+        print(gastos)
+        return gastos
+
 
 class contasPagar(models.Model):
     dataVencimento = models.DateField(null=False)

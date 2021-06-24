@@ -41,6 +41,7 @@ def exibir_fluxo(request):
                 "somaPrevisto": contasPagar.objects.obter_somaPrevisto_mes(i),
                 "somaRealizado": contasPagar.objects.obter_somaRealizado_mes(i),
                 "somaMensal": contasPagar.objects.obter_soma_mes(i),
+                "gastosClassificacao": contasPagar.objects.obter_gastos_classificacao(i),
             },
             "receber" : {
                 "somaPrevisto": contasReceber.objects.obter_somaPrevisto_mes(i),
