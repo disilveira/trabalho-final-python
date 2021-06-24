@@ -11,7 +11,7 @@
         <div>
             {% for mes in meses %}
                 <h1>{{mes.data}}</h1>
-                <h4>Saldo Inicial: {{mes.saldo_inicial}}</h4>      
+                <h4>Saldo Inicial: {{mes.saldo_inicial}} R$</h4>      
                 
                 {% for gasto in mes.pagar.gastosClassificacao %}
                 <div class="row">
@@ -19,35 +19,35 @@
                         <p>Despesa: {{gasto.classificacao}}</p>
                     </div>
                     <div class="col-6">
-                        <p>{{gasto.soma}}</p>
+                        <p>{{gasto.soma}} R$</p>
                     </div>
                 </div>
                 {% endfor %}
 
-                <div class="row">
+                <div class="row totais">
                     <div class="col-6">
-                        <p>Total despesas previstas</p>
+                        <p class="total">Total despesas previstas</p>
                     </div>
                     <div class="col-6">
-                        <p>{{mes.pagar.somaPrevisto}}</p>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-6">
-                        <p>Total despesas pagas</p>
-                    </div>
-                    <div class="col-6">
-                        <p>{{mes.pagar.somaRealizado}}</p>
+                        <p class="total">{{mes.pagar.somaPrevisto}} R$</p>
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row totais">
                     <div class="col-6">
-                        <p>Total despesas</p>
+                        <p class="total">Total despesas pagas</p>
                     </div>
                     <div class="col-6">
-                        <p>{{mes.pagar.somaMensal}}</p>
+                        <p class="total">{{mes.pagar.somaRealizado}} R$</p>
+                    </div>
+                </div>
+
+                <div class="row totais">
+                    <div class="col-6">
+                        <p class="total">Total despesas</p>
+                    </div>
+                    <div class="col-6">
+                        <p class="total">{{mes.pagar.somaMensal}} R$</p>
                     </div>
                 </div>
 
@@ -59,40 +59,40 @@
                         <p>Receita: {{ganho.classificacao}}</p>
                     </div>
                     <div class="col-6">
-                        <p>{{ganho.soma}}</p>
+                        <p>{{ganho.soma}} R$</p>
                     </div>
                 </div>
                 {% endfor %}
 
-                <div class="row">
+                <div class="row totais">
                     <div class="col-6">
-                        <p>Total receitas previstas</p>
+                        <p class="total">Total receitas previstas</p>
                     </div>
                     <div class="col-6">
-                        <p>{{mes.receber.somaPrevisto}}</p>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-6">
-                        <p>Total receitas recebidas</p>
-                    </div>
-                    <div class="col-6">
-                        <p>{{mes.receber.somaRecebido}}</p>
+                        <p class="total">{{mes.receber.somaPrevisto}} R$</p>
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row totais">
                     <div class="col-6">
-                        <p>Total receitas</p>
+                        <p class="total">Total receitas recebidas</p>
                     </div>
                     <div class="col-6">
-                        <p>{{mes.receber.somaMensal}}</p>
+                        <p class="total">{{mes.receber.somaRecebido}} R$</p>
                     </div>
                 </div>
 
-                <h4>Saldo Final: {{mes.saldo_final}} </h4>
-                <h4>Lucratividade: {{mes.lucro}}</h4>
+                <div class="row totais">
+                    <div class="col-6">
+                        <p class="total">Total receitas</p>
+                    </div>
+                    <div class="col-6">
+                        <p class="total">{{mes.receber.somaMensal}} R$</p>
+                    </div>
+                </div>
+
+                <h4>Saldo Final: {{mes.saldo_final}} R$</h4>
+                <h4>Lucratividade: {{mes.lucro}} R$</h4>
 
             {% endfor %}
 
@@ -105,7 +105,42 @@
 
 	<style>
 
+        h1 {
+            font-size: 40px;
+            margin-top: 80px;
+            margin-bottom: 40px;
+            padding: 10px;
+            text-align: center;
+            background-color: black;
+            color: white;
+        }
 
+        h4 {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            background-color: gray;
+            color: white;
+            font-size: 24px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .row {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid black;
+        }
+
+        .totais {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            background-color: lightslategray;
+        }
+
+        .total {
+            font-weight: 600;
+            color: white;
+        }
 
 	</style>
 
