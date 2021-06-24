@@ -21,6 +21,20 @@ class contasReceberManager(models.Manager):
         soma = float(contasReceber.objects.filter(dataExpectativa__month=i).aggregate(Sum('valor'))['valor__sum'] or 0)
         return soma
 
+    def obter_ganhos_classificacao(self, i):
+
+        ganhos = []
+
+        for x in range (1,19):
+            soma = float(contasReceber.objects.filter(dataExpectativa__month=i, classificacao=x).aggregate(Sum('valor'))['valor__sum'] or 0)
+            ganho = {
+            'classificacao' : Classificacao.objects.obter_classificacao_id(x),
+            'soma' : soma
+            }
+            if soma > 0:
+                ganhos.append(ganho)
+        return ganhos
+
 class contasReceber(models.Model):
     dataExpectativa = models.DateField(null=False)
     dataRecebimento = models.DateField(null=True)

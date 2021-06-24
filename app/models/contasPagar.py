@@ -1,4 +1,3 @@
-from django.db.models.aggregates import Count
 from . import Classificacao, formaPagamento
 from django.db import models
 from django.db.models import Sum
@@ -35,7 +34,6 @@ class contasPagarManager(models.Manager):
             if soma > 0:
                 gastos.append(gasto)
   
-        print(gastos)
         return gastos
 
 

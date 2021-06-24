@@ -70,6 +70,17 @@
                     </div>
                 </div>
 
+                {% for ganho in mes.receber.ganhosClassificacao %}
+                <div class="row">
+                    <div class="col-6">
+                        <p>Receita: {{ganho.classificacao}}</p>
+                    </div>
+                    <div class="col-6">
+                        <p>{{ganho.soma}}</p>
+                    </div>
+                </div>
+                {% endfor %}
+
                 <div class="row">
                     <div class="col-6">
                         <p>Total receitas</p>
