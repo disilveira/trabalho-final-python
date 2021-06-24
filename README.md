@@ -28,3 +28,17 @@ Em seguida, nas linhas, as despesas por classificação e um totalizador de desp
 No final da tabela, apresentar o saldo final, e a lucratividade no período (diferença entre o saldo final e inicial).
 O saldo inicial de um mês é o saldo final do último mês.
 O usuário poderá informar, para o primeiro mês, o saldo manualmente.
+
+## Utilização
+
+### Endpoints
+
+#### API
+ - Classificações: http://localhost:8000/app/classificacoes/
+ - Formas de Pagamento: http://localhost:8000/app/formasPagamento/
+ - Contas a Receber: http://localhost:8000/app/contasReceber/
+ - Contas a Pagar: http://localhost:8000/app/contasPagar/
+
+#### Relatórios HTML
+ - Fluxo de Caixa: http://localhost:8000/app/exibir_fluxo
+ - Relatório: http://localhost:8000/app/exibir_relatorios
